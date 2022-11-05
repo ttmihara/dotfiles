@@ -1,4 +1,4 @@
-{{ if eq .chezmoi.os "windows"}}
+{{ if eq .chezmoi.os "windows" }}
 [cd]
   command = "powershell"
 {{ end }}
@@ -9,4 +9,4 @@
 encryption="age"
 [age]
   identity = "~/key.txt"
-  recipient = "age18lfhlu8w5s0tu9gw69kj49g07u0up4kuwj24va7p4uycac4fqdwsh84m4m"
+  recipients = ["age18lfhlu8w5s0tu9gw69kj49g07u0up4kuwj24va7p4uycac4fqdwsh84m4m", "age19054ksl0wtypf4p3c0t3gwsugyf8j49dnxv0elgn05wxeazlwv3srjf0jx" ]
