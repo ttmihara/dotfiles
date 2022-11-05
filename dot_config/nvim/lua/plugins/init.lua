@@ -19,6 +19,7 @@ require("packer").startup(function(use)
   -- Comments
   use {
     'numToStr/Comment.nvim',
+    setup = require("mappings").plugins["Comment"].setup(),
     config = function()
       require('Comment').setup()
     end

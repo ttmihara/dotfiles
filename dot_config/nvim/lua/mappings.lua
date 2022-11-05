@@ -139,11 +139,11 @@ M.plugins = {
     end,
   },
 
-  -- terrortylor/nvim-comment
-  ["nvim-comment"] = {
+  -- numToStr/Comment
+  ["Comment"] = {
     setup = function()
-      map("n", "<Leader>/", "<Cmd>CommentToggle<CR>", opts)
-      map("v", "<Leader>/", ":CommentToggle<CR>", opts)
+      map("n", "<Leader>/", "<Cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
+      map("v", "<Leader>/", "<Esc><Cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", opts)
     end,
   },
 
