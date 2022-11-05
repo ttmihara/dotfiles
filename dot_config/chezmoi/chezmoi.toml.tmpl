@@ -1,0 +1,12 @@
+{{ if eq .chezmoi.os "windows"}}
+[cd]
+  command = "powershell"
+{{ end }}
+
+[edit]
+  command = "nvim"
+
+encryption="age"
+[age]
+  identity = "~/key.txt"
+  recipient = "age18lfhlu8w5s0tu9gw69kj49g07u0up4kuwj24va7p4uycac4fqdwsh84m4m"
