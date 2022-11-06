@@ -48,7 +48,7 @@ require("nvim-tree").setup {
     side = "left",
     mappings = {
       custom_only = false,
-      list = require("mappings").plugins["nvim-tree"].list,
+      list = require("mappings").plugins["nvim-tree"].get_list(),
     },
   },
 }

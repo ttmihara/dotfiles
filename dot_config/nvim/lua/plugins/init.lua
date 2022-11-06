@@ -1,8 +1,10 @@
 require("plugins.init_packer")
+local maps = require("mappings")
+maps.set(maps.plugins["packer"])
 
 require("packer").startup(function(use)
   -- Package manager
-  use { "wbthomason/packer.nvim" }
+  use { "wbthomason/packer.nvim", }
 
   ----------------------------------------------------------------------------
   -- Edit
@@ -19,7 +21,9 @@ require("packer").startup(function(use)
   -- Comments
   use {
     'numToStr/Comment.nvim',
-    setup = require("mappings").plugins["Comment"].setup(),
+    opt = true,
+    event = "BufEnter",
+    setup = maps.set(maps.plugins["Comment"]),
     config = function()
       require('Comment').setup()
     end
@@ -27,6 +31,8 @@ require("packer").startup(function(use)
   -- Enhance "f", "t"
   use {
     "hrsh7th/vim-eft",
+    opt = true,
+    event = "BufEnter",
     setup = require("mappings").plugins["vim-eft"].setup(),
     config = function()
       require "plugins.config.vim-eft"
@@ -65,14 +71,12 @@ require("packer").startup(function(use)
   }
 
   ----------------------------------------------------------------------------
-  -- Interface 
+  -- Interface
   ----------------------------------------------------------------------------
   --  File explorer
   use {
     "kyazdani42/nvim-tree.lua",
-    -- opt = true,
-    -- cmd = { "NvimTreeToggle", "NvimTreeFindFileToggle" },
-    setup = require("mappings").plugins["nvim-tree"].setup(),
+    setup = maps.set(maps.plugins["nvim-tree"]),
     config = function()
       require "plugins.config.nvim-tree"
     end,
@@ -89,7 +93,7 @@ require("packer").startup(function(use)
   use {
     "romgrk/barbar.nvim",
     requires = "kyazdani42/nvim-web-devicons",
-    setup = require("mappings").plugins["barbar"].setup(),
+    setup = maps.set(maps.plugins["barbar"]),
     config = function()
       require "plugins.config.barbar"
     end,
@@ -112,7 +116,7 @@ require("packer").startup(function(use)
   use {
     "nvim-telescope/telescope.nvim",
     requires = "nvim-lua/plenary.nvim",
-    setup = require("mappings").plugins["telescope"].setup(),
+    setup = maps.set(maps.plugins["telescope"]),
     config = function()
       require "plugins.config.telescope"
     end,
@@ -120,6 +124,7 @@ require("packer").startup(function(use)
   -- Git integration
   use {
     "tpope/vim-fugitive",
+    setup = maps.set(maps.plugins["vim-fugitive"]),
     config = function()
       require "plugins.config.vim-fugitive"
     end,
@@ -142,7 +147,7 @@ require("packer").startup(function(use)
   }
   use {
     "neovim/nvim-lspconfig",
-    setup = require("mappings").plugins["lspconfig"].setup(),
+    setup = maps.set(maps.plugins["lspconfig"]),
     config = function()
       require "plugins.config.lspconfig"
     end,
@@ -159,7 +164,7 @@ require("packer").startup(function(use)
   use {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
-    setup = require("mappings").plugins["trouble"].setup(),
+    setup = maps.set(maps.plugins["trouble"]),
     config = function()
       require "plugins.config.trouble"
     end,
@@ -167,14 +172,14 @@ require("packer").startup(function(use)
   -- Outline for symbols using LSP
   use {
     "simrat39/symbols-outline.nvim",
-    setup = require("mappings").plugins["symbols-outline"].setup(),
+    setup = maps.set(maps.plugins["symbols-outline"]),
     config = function()
       require "plugins.config.symbols-outline"
     end,
   }
 
   ----------------------------------------------------------------------------
-  -- Visualizing 
+  -- Visualizing
   ----------------------------------------------------------------------------
   -- TreeSitter
   use {
@@ -204,9 +209,9 @@ require("packer").startup(function(use)
       require "plugins.config.nvim-colorizer"
     end,
   }
-  --
+
   ----------------------------------------------------------------------------
-  -- Colorschemes 
+  -- Colorschemes
   ----------------------------------------------------------------------------
   use "folke/tokyonight.nvim"
 end)

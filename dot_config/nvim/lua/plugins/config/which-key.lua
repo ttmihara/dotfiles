@@ -1,4 +1,5 @@
 local wk = require("which-key")
+local maps = require("mappings")
 
 wk.setup {
   triggers_blacklist = {
@@ -14,29 +15,18 @@ wk.setup {
 
 wk.register({
   ["<leader>"] = {
-    l = {
-      name = "LSP",
-      i = { "<cmd>LspInfo<cr>", "LspInfo" },
-      I = { "<cmd>LspInstallInfo<cr>", "LspInstallInfo" }
-    },
-    p = {
-      name = "Packer",
-      c = { "<cmd>PackerCompile<cr>", "PackerCompile" },
-      i = { "<cmd>PackerInstall<cr>", "PackerInstall" },
-      s = { "<cmd>PackerSync<cr>", "PackerSync" },
-      S = { "<cmd>PackerStatus<cr>", "PackerStatus" },
-      u = { "<cmd>PackerUpdate<cr>", "PackerUpdate" },
-    },
+    l = { name = "LSP", },
+    p = { name = "Packer", },
     s = {
       name = "Search",
-      b = { "<cmd>Telescope buffers<cr>", "Find Buffer" },
-      f = { "<cmd>Telescope find_files<cr>", "Find File" },
-      g = { "<cmd>Telescope live_grep<cr>", "Grep" },
-      h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-      k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-      r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-      R = { "<cmd>Telescope registers<cr>", "Registers" },
-      C = { "<cmd>Telescope commands<cr>", "Commands" },
+--       b = { "<cmd>Telescope buffers<cr>", "Find Buffer" },
+--       f = { "<cmd>Telescope find_files<cr>", "Find File" },
+--       g = { "<cmd>Telescope live_grep<cr>", "Grep" },
+--       h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+--       k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
+--       r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+--       R = { "<cmd>Telescope registers<cr>", "Registers" },
+--       C = { "<cmd>Telescope commands<cr>", "Commands" },
     },
   },
 })
