@@ -1,4 +1,0 @@
-README.md
-{{ if eq .chezmoi.os "windows" }}
-.input_rc
-{{ end }}

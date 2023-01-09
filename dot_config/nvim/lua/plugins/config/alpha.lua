@@ -13,7 +13,7 @@ dashboard.section.header.val = {
 }
 dashboard.section.buttons.val = {
   dashboard.button("e", "  New file", ":enew<CR>"),
-  dashboard.button("SPC e", "  File explorer", ":NvimTreeToggle<CR>"),
+  dashboard.button("SPC e", "  Explorer", ":NvimTreeToggle<CR>"),
   dashboard.button("SPC sf", "  Find files", ":Telescope find_files<CR>"),
   dashboard.button("SPC so", "  Find oldfiles", ":Telescope oldfiles<CR>"),
   dashboard.button("q", "  Quit NVIM", ":qa<CR>"),

@@ -27,7 +27,7 @@ M.general = {
   i = {
     ["jk"] = { "<C-c>", desc = "Escape" },
     ["kj"] = { "<C-c>", desc = "Escape" },
-    ["<C-d>"] = { "<Del>", desc = "Delete" },
+    -- ["<C-d>"] = { "<Del>", desc = "Delete" },
     ["<C-h>"] = { "<BS>", desc = "BackSpace" },
     ["<C-j>"] = { "<Down>", desc = "Down" },
     ["<C-k>"] = { "<Up>", desc = "Up" },
