@@ -4,10 +4,11 @@ if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
     $CommandLine = "-NoExit -File `"" + $MyInvocation.MyCommand.Path + "`" " + $MyInvocation.UnboundArguments
     Start-Process -FilePath PowerShell.exe -Verb Runas -ArgumentList $CommandLine
     # Prevent script from exiting before creating symlink
-    Write-Output "Press any key to continue..."
+    Write-Output "Press Enter key to continue..."
     Read-Host
     Exit
   }
 }
 
-New-Item -ItemType SymbolicLink -Path "$HOME\AppData\Local\nvim" -Target "$HOME\.config\nvim"
+# List SymbolicLinks
+New-Item -ItemType SymbolicLink -Path "$HOME\AppData\Local\nvim" -Target "$HOME\.config\nvim" -Confirm

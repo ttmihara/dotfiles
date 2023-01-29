@@ -1,6 +1,13 @@
+# vim:ft=toml
+
 [".config/nvim"]
-    type = "git-repo"
-    url = "https://github.com/NvChad/NvChad.git"
+    # type = "git-repo"
+      # NOTE: git-repo does not allow to add a "gitignored file/dir" in the repo (yield an inconsistent error)
+      # REF: https://github.com/twpayne/chezmoi/issues/1614
+    type = "archive"
+    # url = "https://github.com/NvChad/NvChad.git"
+    url = "https://github.com/NvChad/NvChad/archive/refs/heads/main.zip"
     refreshPeriod = "168h"
-    [".config/nvim".clone]
-        args = ["--depth", "1"]
+    stripComponents = 1
+    # [".config/nvim".clone]
+    #     args = ["--depth", "1"]
