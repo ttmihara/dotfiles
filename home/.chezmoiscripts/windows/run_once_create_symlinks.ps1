@@ -10,6 +10,7 @@ if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
   }
 }
 
-# List SymbolicLinks
+# Neovim
 New-Item -ItemType SymbolicLink -Path "$HOME\AppData\Local\nvim" -Target "$HOME\.config\nvim" -Confirm
+# PowerShell
 New-Item -ItemType SymbolicLink -Path "$PROFILE" -Target "$HOME\.config\powershell\Microsoft.PowerShell_profile.ps1" -Confirm
