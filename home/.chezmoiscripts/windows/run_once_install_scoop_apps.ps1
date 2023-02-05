@@ -19,6 +19,7 @@ if (Get-Command scoop -errorAction SilentlyContinue)
 
     # CLI utils
     'starship',
+    'zoxide'
     'fd',
     'fzf',
     'ripgrep',
@@ -34,6 +35,7 @@ if (Get-Command scoop -errorAction SilentlyContinue)
   if ($answer -eq 'Y') 
   {
     # Install apps above
+    scoop bucket add extras
     scoop install $scoop_apps
   }else{
     Write-Host 'Abort.'

@@ -1,1 +1,2 @@
-New-Alias -Name "ex" explorer
+New-Alias -Name "x" explorer
+# New-Alias -Name "z" zoxide
