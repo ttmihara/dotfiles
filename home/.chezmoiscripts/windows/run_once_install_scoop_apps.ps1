@@ -22,6 +22,7 @@ if (Get-Command scoop -errorAction SilentlyContinue)
     'zoxide'
     'fd',
     'fzf',
+    'psfzf'
     'ripgrep',
 
     # Documentation

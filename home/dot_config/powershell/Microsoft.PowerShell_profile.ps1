@@ -19,5 +19,11 @@ if (Get-Command zoxide -errorAction SilentlyContinue)
   })
 }
 
+# PSFzf
+if (Get-Command Set-PSFzfOption -errorAction SilentlyContinue)
+{
+  Set-PsFzfOption
+}
+
 # Aliases
 . $HOME/.config/powershell/aliases.ps1
