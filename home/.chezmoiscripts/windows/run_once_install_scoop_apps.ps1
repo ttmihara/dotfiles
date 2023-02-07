@@ -23,11 +23,11 @@ if (Get-Command scoop -errorAction SilentlyContinue)
     'fd',
     'fzf',
     'psfzf'
-    'ripgrep',
+    'ripgrep'
 
     # Documentation
-    'joplin',
-    'sumatrapdf'
+    # 'joplin',
+    # 'sumatrapdf'
     )
 
   Write-Host "The following scoop apps will be installed:`n"
