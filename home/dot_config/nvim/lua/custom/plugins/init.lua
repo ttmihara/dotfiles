@@ -10,7 +10,13 @@ local M = {
   ["tpope/vim-fugitive"] = {
     disable = false,
     opt = true,
-    cmd = {'Git', 'G'}
+    cmd = {'Git', 'G'},
+  },
+  ["neovim/nvim-lspconfig"] = {
+      config = function()
+        require "plugins.configs.lspconfig"
+        require "custom.plugins.lspconfig"
+      end,
   },
 }
 
