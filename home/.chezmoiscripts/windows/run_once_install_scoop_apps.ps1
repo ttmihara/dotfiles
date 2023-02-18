@@ -8,6 +8,7 @@ if (Get-Command scoop -errorAction SilentlyContinue)
     '7zip',
     'autohotkey',
     'windows-terminal',
+    'everything',
 
     # Encryption
     'age',
@@ -23,11 +24,13 @@ if (Get-Command scoop -errorAction SilentlyContinue)
     'fd',
     'fzf',
     'psfzf'
-    'ripgrep'
+    'ripgrep',
+    'scoop-completion'
 
     # Documentation
     # 'joplin',
-    # 'sumatrapdf'
+    # 'sumatrapdf',
+    # 'draw.io'
     )
 
   Write-Host "The following scoop apps will be installed:`n"

@@ -4,6 +4,9 @@ if (Get-Command chezmoi -errorAction SilentlyContinue)
   . $HOME/.config/powershell/chezmoi_completion.ps1
 }
 
+# scoop completion
+Import-Module "$($(Get-Item $(Get-Command scoop.ps1).Path).Directory.Parent.FullName)\modules\scoop-completion" -errorAction SilentlyContinue
+
 # setup starship prompt
 if (Get-Command starship -errorAction SilentlyContinue)
 {
