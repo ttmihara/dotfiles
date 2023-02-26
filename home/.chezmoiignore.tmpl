@@ -3,3 +3,8 @@
 .local/share/AutoHotkey
 {{ end }}
 
+{{ if ne .chezmoi.os "linux" }}
+.chezmoiscripts/linux/**
+.config/alacritty
+.config/tmux
+{{ end }}
