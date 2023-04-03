@@ -41,6 +41,10 @@
   Run "msaccess.exe"
 }
 
+#h:: ; Win + h
+{
+  WinMinimize "A" ; Minimize the active window
+}
 
 ;############################## 
 ; HotStrings
