@@ -30,7 +30,8 @@ if (Get-Command scoop -errorAction SilentlyContinue)
     # Documentation
     # 'joplin',
     # 'sumatrapdf',
-    # 'draw.io'
+    # 'draw.io',
+    # 'plantuml'
     )
 
   Write-Host "The following scoop apps will be installed:`n"
