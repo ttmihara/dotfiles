@@ -32,6 +32,7 @@ if (Get-Command scoop -errorAction SilentlyContinue)
     # 'sumatrapdf',
     # 'draw.io',
     # 'plantuml'
+    # 'openjdk' # for plantuml
     )
 
   Write-Host "The following scoop apps will be installed:`n"
@@ -41,6 +42,7 @@ if (Get-Command scoop -errorAction SilentlyContinue)
   {
     # Install apps above
     scoop bucket add extras
+    # scoop bucket add java # for plantuml
     scoop install $scoop_apps
   }else{
     Write-Host 'Abort.'
