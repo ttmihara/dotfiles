@@ -46,10 +46,12 @@
   WinMinimize "A" ; Minimize the active window
 }
 
+
 ;############################## 
 ; HotStrings
 ;############################## 
 
+; 30 letters
 ::***::******************************
 
 ::---::------------------------------
@@ -58,7 +60,37 @@
 
 ::###::{Raw}##############################
 
-:*:@dd:: ; print current time in format
+
+;############################## 
+; FormatTime
+;############################## 
+
+:*:@dd:: ; print current date in format
+{
+  SendInput FormatTime(, "yyyy/MM/dd")
+}
+
+:*:@d(:: ; print current date (days of the week) in format
 {
   SendInput FormatTime(, "yyyy/MM/dd(ddd)")
+}
+
+:*:@ds:: ; print current date and time in format
+{
+  SendInput FormatTime(, "yyyy/MM/dd hh:mm:ss")
+}
+
+:*:@dm:: ; print current date and time in format
+{
+  SendInput FormatTime(, "yyyy/MM/dd hh:mm")
+}
+
+:*:@ts:: ; print current time in format
+{
+  SendInput FormatTime(, "hh:mm:ss")
+}
+
+:*:@tm:: ; print current time in format
+{
+  SendInput FormatTime(, "hh:mm")
 }
