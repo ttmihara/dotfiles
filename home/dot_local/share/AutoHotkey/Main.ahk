@@ -70,7 +70,12 @@
   SendInput FormatTime(, "yyyy/MM/dd")
 }
 
-:*:@d(:: ; print current date (days of the week) in format
+:*:@dj:: ; print current date in Japan style format
+{
+  SendInput FormatTime(, "yyyy年MM月dd日")
+}
+
+:*:@dw:: ; print current date (days of the week) in format
 {
   SendInput FormatTime(, "yyyy/MM/dd(ddd)")
 }
