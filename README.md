@@ -4,17 +4,17 @@
 
 ### Windows
 
-To install [`scoop`](https://github.com/ScoopInstaller/Scoop)
+1. To install [`scoop`](https://github.com/ScoopInstaller/Scoop)
 ```powershell
 iwr -useb get.scoop.sh | iex
 ```
 
-To install [`chezmoi`](https://github.com/twpayne/chezmoi).
+2. To install [`chezmoi`](https://github.com/twpayne/chezmoi).
 ```
 scoop install chezmoi
 ```
 
-To setup this repo
+3. To setup this repo
 ```
 chezmoi init ttmihara
 ```

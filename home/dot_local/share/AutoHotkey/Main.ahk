@@ -10,7 +10,7 @@
 
 ^!f:: ; Ctrl + Alt + f
 {
-  Run "everything" 
+  Run "everything", , "Hide" 
   return
 }
 
@@ -82,12 +82,12 @@
 
 :*:@ds:: ; print current date and time in format
 {
-  SendInput FormatTime(, "yyyy/MM/dd hh:mm:ss")
+  SendInput FormatTime(, "yyyy/MM/dd HH:mm:ss")
 }
 
 :*:@dm:: ; print current date and time in format
 {
-  SendInput FormatTime(, "yyyy/MM/dd hh:mm")
+  SendInput FormatTime(, "yyyy/MM/dd HH:mm")
 }
 
 :*:@ts:: ; print current time in format
