@@ -51,51 +51,65 @@
 ; HotStrings
 ;############################## 
 
-; 30 letters
-::***::******************************
+; 40 letters
+::****::****************************************
 
-::---::------------------------------
+::----::----------------------------------------
 
-::===::==============================
+::====::========================================
 
-::###::{Raw}##############################
+::////::////////////////////////////////////////
+
+::####::{Raw}########################################
+
+::++++::{Raw}++++++++++++++++++++++++++++++++++++++++
 
 
 ;############################## 
 ; FormatTime
 ;############################## 
 
-:*:@dd:: ; print current date in format
+:*:;;;:: ; print current date in format
+{
+  SendInput FormatTime(, "yyyyMMdd")
+}
+
+:*:;//:: ; print current date in format
 {
   SendInput FormatTime(, "yyyy/MM/dd")
 }
 
-:*:@dj:: ; print current date in Japan style format
+:*:;jj:: ; print current date in Japanese format
 {
   SendInput FormatTime(, "yyyy年MM月dd日")
 }
 
-:*:@dw:: ; print current date (days of the week) in format
+:*:;/w:: ; print current date (days of the week) in format
 {
   SendInput FormatTime(, "yyyy/MM/dd(ddd)")
 }
 
-:*:@ds:: ; print current date and time in format
+:*:;jw:: ; print current date (days of the week) in Japanese format
+{
+  SendInput FormatTime(, "yyyy年MM月dd日(ddd)")
+}
+
+:*:;/s:: ; print current date and time in format
 {
   SendInput FormatTime(, "yyyy/MM/dd HH:mm:ss")
 }
 
-:*:@dm:: ; print current date and time in format
+:*:;/m:: ; print current date and time in format
 {
   SendInput FormatTime(, "yyyy/MM/dd HH:mm")
 }
 
-:*:@ts:: ; print current time in format
+:*::s:: ; print current time in format
 {
   SendInput FormatTime(, "hh:mm:ss")
 }
 
-:*:@tm:: ; print current time in format
+:*::m:: ; print current time in format
 {
   SendInput FormatTime(, "hh:mm")
 }
