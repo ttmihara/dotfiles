@@ -106,10 +106,10 @@
 
 :*::s:: ; print current time in format
 {
-  SendInput FormatTime(, "hh:mm:ss")
+  SendInput FormatTime(, "H:mm:ss")
 }
 
 :*::m:: ; print current time in format
 {
-  SendInput FormatTime(, "hh:mm")
+  SendInput FormatTime(, "H:mm")
 }
