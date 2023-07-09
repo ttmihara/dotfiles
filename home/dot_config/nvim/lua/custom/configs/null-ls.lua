@@ -8,7 +8,9 @@ local sources = {
 	formatting.cmake_format,
 	formatting.stylua,
 	formatting.prettier,
+	formatting.black,
 	formatting.xmllint,
+	formatting.taplo,
 }
 
 null_ls.setup({

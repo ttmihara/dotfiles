@@ -1,13 +1,11 @@
 # vim:ft=toml
 
 [".config/nvim"]
+    # NOTE: git-repo does not allow to add a "gitignored file/dir" in the repo (yield an inconsistent error)
+    # REF: https://github.com/twpayne/chezmoi/issues/1614
     # type = "git-repo"
-      # NOTE: git-repo does not allow to add a "gitignored file/dir" in the repo (yield an inconsistent error)
-      # REF: https://github.com/twpayne/chezmoi/issues/1614
-    type = "archive"
     # url = "https://github.com/NvChad/NvChad.git"
-    url = "https://github.com/NvChad/NvChad/archive/refs/heads/main.zip"
+    type = "archive"
+    url = "https://github.com/NvChad/NvChad/archive/refs/tags/v2.0.zip"
     refreshPeriod = "168h"
     stripComponents = 1
-    # [".config/nvim".clone]
-    #     args = ["--depth", "1"]
