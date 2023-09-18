@@ -104,12 +104,12 @@
   SendInput FormatTime(, "yyyy/MM/dd HH:mm")
 }
 
-:*::s:: ; print current time in format
+:*::ss:: ; print current time in format
 {
   SendInput FormatTime(, "H:mm:ss")
 }
 
-:*::m:: ; print current time in format
+:*::mm:: ; print current time in format
 {
   SendInput FormatTime(, "H:mm")
 }
