@@ -69,29 +69,54 @@
 ; FormatTime
 ;############################## 
 
-:*:;;;:: ; print current date in format
+:*:;;;:: ; print today in format
 {
   SendInput FormatTime(, "yyyyMMdd")
 }
 
-:*:;//:: ; print current date in format
+:*:;//:: ; print today in format
 {
   SendInput FormatTime(, "yyyy/MM/dd")
 }
 
-:*:;jj:: ; print current date in Japanese format
+:*:;jj:: ; print today in Japanese format
 {
   SendInput FormatTime(, "yyyy年MM月dd日")
 }
 
-:*:;/w:: ; print current date (days of the week) in format
+:*:;/w:: ; print today (days of the week) in format
 {
   SendInput FormatTime(, "yyyy/MM/dd(ddd)")
 }
 
-:*:;jw:: ; print current date (days of the week) in Japanese format
+:*:;jw:: ; print today (days of the week) in Japanese format
 {
   SendInput FormatTime(, "yyyy年MM月dd日(ddd)")
+}
+
+:*:;1;;:: ; print tomorrow in format
+{
+  SendInput FormatTime(DateAdd(A_Now, 1, "days"), "yyyyMMdd")
+}
+
+:*:;1//:: ; print tomorrow in format
+{
+  SendInput FormatTime(DateAdd(A_Now, 1, "days"), "yyyy/MM/dd")
+}
+
+:*:;1jj:: ; print tomorrow in Japanese format
+{
+  SendInput FormatTime(DateAdd(A_Now, 1, "days"), "yyyy年MM月dd日")
+}
+
+:*:;1/w:: ; print tomorrow (days of the week) in format
+{
+  SendInput FormatTime(DateAdd(A_Now, 1, "days"), "yyyy/MM/dd(ddd)")
+}
+
+:*:;1jw:: ; print tomorrow (days of the week) in Japanese format
+{
+  SendInput FormatTime(DateAdd(A_Now, 1, "days"), "yyyy年MM月dd日(ddd)")
 }
 
 :*:;/s:: ; print current date and time in format
@@ -113,3 +138,4 @@
 {
   SendInput FormatTime(, "H:mm")
 }
+
