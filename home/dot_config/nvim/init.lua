@@ -86,7 +86,7 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
+      { 'j-hui/fidget.nvim',       tag = 'legacy', opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -110,7 +110,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  { 'folke/which-key.nvim',  opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -128,16 +128,16 @@ require('lazy').setup({
 
         -- don't override the built-in and fugitive keymaps
         local gs = package.loaded.gitsigns
-        vim.keymap.set({'n', 'v'}, ']c', function()
+        vim.keymap.set({ 'n', 'v' }, ']c', function()
           if vim.wo.diff then return ']c' end
           vim.schedule(function() gs.next_hunk() end)
           return '<Ignore>'
-        end, {expr=true, buffer = bufnr, desc = "Jump to next hunk"})
-        vim.keymap.set({'n', 'v'}, '[c', function()
+        end, { expr = true, buffer = bufnr, desc = "Jump to next hunk" })
+        vim.keymap.set({ 'n', 'v' }, '[c', function()
           if vim.wo.diff then return '[c' end
           vim.schedule(function() gs.prev_hunk() end)
           return '<Ignore>'
-        end, {expr=true, buffer = bufnr, desc = "Jump to previous hunk"})
+        end, { expr = true, buffer = bufnr, desc = "Jump to previous hunk" })
       end,
     },
   },
@@ -190,14 +190,61 @@ require('lazy').setup({
     },
   },
 
+  {
+    -- Buffer line
+    'akinsho/bufferline.nvim',
+    version = "*",
+    dependencies = 'nvim-tree/nvim-web-devicons',
+    event = "BufRead",
+    keys = {
+      { "<Tab>",   "<cmd>BufferLineCycleNext<CR>", desc = "BufferLineCycleNext" },
+      { "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", desc = "BufferLineCyclePrev" },
+    },
+    config = function()
+      require("bufferline").setup()
+    end,
+  },
+
+  {
+    -- Formatters
+    'mhartington/formatter.nvim',
+    version = "*",
+    keys = {
+      { "<leader>f", "<cmd>Format<CR>", desc = "Format" },
+    },
+    config = function()
+      -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
+      require("formatter").setup {
+        -- All formatter configurations are opt-in
+        filetype = {
+          -- Formatter configurations for filetype "lua" go here
+          -- and will be executed in order
+          lua = {
+            -- "formatter.filetypes.lua" defines default configurations for the
+            -- "lua" filetype
+            require("formatter.filetypes.lua").stylua,
+          },
+
+          -- Use the special "*" filetype for defining formatter configurations on
+          -- any filetype
+          ["*"] = {
+            -- "formatter.filetypes.any" defines default configurations for any
+            -- filetype
+            require("formatter.filetypes.any").remove_trailing_whitespace
+          }
+        }
+      }
+    end,
+  },
+
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
 
   {
     -- autopair
-      'windwp/nvim-autopairs',
-      event = "InsertEnter",
-      opts = {} -- this is equalent to setup({}) function
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    opts = {} -- this is equalent to setup({}) function
   },
 
   {
@@ -208,7 +255,7 @@ require('lazy').setup({
     },
     config = function()
       vim.o.foldcolumn = '1' -- '0' is not bad
-      vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+      vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
       vim.o.foldlevelstart = 99
       vim.o.foldenable = true
 
@@ -217,7 +264,7 @@ require('lazy').setup({
       vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
       require("ufo").setup({
         provider_selector = function(bufnr, filetype, buftype)
-            return {'treesitter', 'indent'}
+          return { 'treesitter', 'indent' }
         end
       })
     end,
@@ -391,7 +438,7 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim' },
+  ensure_installed = { 'cpp', 'lua', 'python', 'vimdoc', 'vim' },
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
   auto_install = false,
@@ -603,4 +650,3 @@ cmp.setup {
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
-
