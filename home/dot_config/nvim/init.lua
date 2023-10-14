@@ -199,9 +199,9 @@ require('lazy').setup({
     dependencies = 'nvim-tree/nvim-web-devicons',
     event = "BufRead",
     keys = {
-      { "<Tab>",   "<cmd>BufferLineCycleNext<CR>", desc = "BufferLineCycleNext" },
-      { "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", desc = "BufferLineCyclePrev" },
-      { "<leader>d", "<cmd>bd<CR>", desc = "buffer delete" },
+      { "<Tab>",     "<cmd>BufferLineCycleNext<CR>", desc = "BufferLineCycleNext" },
+      { "<S-Tab>",   "<cmd>BufferLineCyclePrev<CR>", desc = "BufferLineCyclePrev" },
+      { "<leader>d", "<cmd>bd<CR>",                  desc = "buffer delete" },
     },
     config = function()
       require("bufferline").setup()
@@ -277,6 +277,25 @@ require('lazy').setup({
   {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
+    keys = {
+      { '<leader>sf', "<cmd>Telescope find_files<CR>",  desc = '[S]earch [F]iles' },
+      { '<leader>sh', "<cmd>Telescope help_tags<CR>",   desc = '[S]earch [H]elp' },
+      { '<leader>so', "<cmd>Telescope oldfiles<CR>",    desc = '[S]earch [O]ld files' },
+      { '<leader>sg', "<cmd>Telescope live_grep<CR>",   desc = '[S]earch [G]rep' },
+      { '<leader>sr', "<cmd>Telescope registers<CR>",   desc = '[S]earch [R]egisters' },
+      { '<leader>sb', "<cmd>Telescope bufferes<CR>",    desc = '[S]earch [B]uffers' },
+      { '<leader>sd', "<cmd>Telescope diagnostics<CR>", desc = '[S]earch [D]iagnostics' },
+      {
+        '<leader>/',
+        function()
+          -- You can pass additional configuration to telescope to change theme, layout, etc.
+          require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+            winblend = 10,
+            previewer = false,
+          })
+        end,
+        desc = '[/] Fuzzily search in current buffer'
+      } },
     dependencies = {
       'nvim-lua/plenary.nvim',
       -- Fuzzy Finder Algorithm which requires local dependencies to be built.
@@ -299,7 +318,7 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     enabled = true,
     keys = {
-      { "<leader>th", "<cmd>TSBufEnable highlight<CR>", desc = "TSBufEnable highlight" },
+      { "<leader>th", "<cmd>TSBufEnable highlight<CR>",  desc = "TSBufEnable highlight" },
       { "<leader>tH", "<cmd>TSBufDisable highlight<CR>", desc = "TSBufDisable highlight" },
     },
     dependencies = {
@@ -307,8 +326,6 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
     config = function()
-      -- [[ Configure Treesitter ]]
-      -- See `:help nvim-treesitter`
       require('nvim-treesitter.configs').setup {
         -- Add languages to be installed here that you want installed for treesitter
         ensure_installed = { 'cpp', 'lua', 'python', 'vimdoc', 'vim' },
@@ -474,42 +491,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
-
--- [[ Configure Telescope ]]
--- See `:help telescope` and `:help telescope.setup()`
-require('telescope').setup {
-  defaults = {
-    mappings = {
-      i = {
-        ['<C-u>'] = false,
-        ['<C-d>'] = false,
-      },
-    },
-  },
-}
-
--- Enable telescope fzf native, if installed
-pcall(require('telescope').load_extension, 'fzf')
-
--- See `:help telescope.builtin`
-vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
-vim.keymap.set('n', '<leader>/', function()
-  -- You can pass additional configuration to telescope to change theme, layout, etc.
-  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-    winblend = 10,
-    previewer = false,
-  })
-end, { desc = '[/] Fuzzily search in current buffer' })
-vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
-vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
-vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
-vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
-vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
-vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
-vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]resume' })
-vim.keymap.set('n', '<leader>sb', require('telescope.builtin').buffers, { desc = '[S]earch [B]uffers' })
-
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
