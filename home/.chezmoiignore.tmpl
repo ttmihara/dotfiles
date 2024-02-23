@@ -1,10 +1,16 @@
+# Install on Windows
 {{ if ne .chezmoi.os "windows" }}
 .chezmoiscripts/windows/**
 .local/share/AutoHotkey
 {{ end }}
 
-{{ if ne .chezmoi.os "linux" }}
+# Install on Ubuntu 20.04
+{{ if and (ne .chezmoi.os "linux") (ne .chezmoi.osRelease.id "ubuntu") (ne .chezmoi.osRelease.versionID "20.04") }}
 .chezmoiscripts/linux/**
 .config/alacritty
 .config/tmux
+{{ end }}
+
+# Install on Raspberry Pi
+{{ if and (ne .chezmoi.os "linux") (ne .chezmoi.osRelease.id "raspbian") }}
 {{ end }}
