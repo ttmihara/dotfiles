@@ -1,7 +1,9 @@
-# Install on Windows
-{{ if eq .chezmoi.os "windows" }}
+# Common 
 .config/*
 !.config/chezmoi
+
+# Install on Windows
+{{ if eq .chezmoi.os "windows" }}
 !.config/AutoHotkey
 !.config/nvim
 {{ else }}
@@ -10,8 +12,6 @@
 
 # Install on Ubuntu
 {{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "ubuntu") }}
-.config/*
-!.config/chezmoi
 !.config/alacritty
 !.config/tmux
 !.config/nvim
