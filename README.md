@@ -2,19 +2,30 @@
 
 ## Installation
 
-### Windows
+### Step 1. Install [Chezmoi](https://www.chezmoi.io/install/)
+<details>
+<summary>Linux</summary>
 
-1. To install [`scoop`](https://github.com/ScoopInstaller/Scoop)
+Install the latest version via [Snap](https://snapcraft.io/):
+
+```sh
+snap install chezmoi --classic
+```
+</details>
+
+<details>
+<summary>Windows</summary>
+
+Install the latest version via [`Scoop`](https://github.com/ScoopInstaller/Scoop):
+
 ```powershell
-iwr -useb get.scoop.sh | iex
-```
-
-2. To install [`chezmoi`](https://github.com/twpayne/chezmoi).
-```
 scoop install chezmoi
 ```
+</details>
 
-3. To setup this repo
+
+
+### Step 2. Setup this repo
 ```
 chezmoi init ttmihara
 ```
