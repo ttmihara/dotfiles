@@ -17,6 +17,7 @@ if (Get-Command scoop -errorAction SilentlyContinue)
     # Editors
     'neovim',
     'vscode',
+    'vim',
 
     # CLI utils
     'starship',
@@ -26,13 +27,6 @@ if (Get-Command scoop -errorAction SilentlyContinue)
     'psfzf'
     'ripgrep',
     'scoop-completion'
-
-    # Documentation
-    # 'joplin',
-    # 'sumatrapdf',
-    # 'draw.io',
-    # 'plantuml'
-    # 'openjdk' # for plantuml
     )
 
   Write-Host "The following scoop apps will be installed:`n"
