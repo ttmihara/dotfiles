@@ -22,4 +22,5 @@
 # Install on Raspbian
 {{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "raspbian") }}
 {{ else }}
+.chezmoiscripts/raspbian/**
 {{ end }}
