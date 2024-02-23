@@ -240,6 +240,12 @@ require("lazy").setup({
 					python = {
 						require("formatter.filetypes.python").black,
 					},
+					cpp = {
+						require("formatter.filetypes.cpp").clangformat,
+					},
+					cmake = {
+						require("formatter.filetypes.cmake").cmakeformat,
+					},
 
 					-- Use the special "*" filetype for defining formatter configurations on
 					-- any filetype
