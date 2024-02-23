@@ -5,10 +5,10 @@ if (Get-Command scoop -errorAction SilentlyContinue)
     'sudo',
     'git',
     'curl',
-    '7zip',
+    # '7zip',
     'autohotkey',
-    'windows-terminal',
-    'everything',
+    # 'windows-terminal',
+    # 'everything',
 
     # Encryption
     'age',
@@ -16,8 +16,8 @@ if (Get-Command scoop -errorAction SilentlyContinue)
 
     # Editors
     'neovim',
-    'vscode',
-    'vim',
+    # 'vscode',
+    # 'vim',
 
     # CLI utils
     'starship',
