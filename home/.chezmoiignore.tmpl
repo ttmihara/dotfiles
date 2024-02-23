@@ -1,16 +1,25 @@
 # Install on Windows
-{{ if ne .chezmoi.os "windows" }}
+{{ if eq .chezmoi.os "windows" }}
+.config/*
+!.config/chezmoi
+!.config/AutoHotkey
+!.config/nvim
+{{ else }}
 .chezmoiscripts/windows/**
-.local/share/AutoHotkey
 {{ end }}
 
-# Install on Ubuntu 20.04
-{{ if and (ne .chezmoi.os "linux") (ne .chezmoi.osRelease.id "ubuntu") (ne .chezmoi.osRelease.versionID "20.04") }}
-.chezmoiscripts/linux/**
-.config/alacritty
-.config/tmux
+# Install on Ubuntu
+{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "ubuntu") }}
+.config/*
+!.config/chezmoi
+!.config/alacritty
+!.config/tmux
+!.config/nvim
+{{ else }}
+.chezmoiscripts/ubuntu/**
 {{ end }}
 
-# Install on Raspberry Pi
-{{ if and (ne .chezmoi.os "linux") (ne .chezmoi.osRelease.id "raspbian") }}
+# Install on Raspbian
+{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "raspbian") }}
+{{ else }}
 {{ end }}

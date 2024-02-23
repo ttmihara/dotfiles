@@ -15,4 +15,4 @@ New-Item -ItemType SymbolicLink -Path "$HOME\AppData\Local\nvim" -Target "$HOME\
 # PowerShell
 New-Item -ItemType SymbolicLink -Path "$PROFILE" -Target "$HOME\.config\powershell\Microsoft.PowerShell_profile.ps1" -Confirm -errorAction SilentlyContinue
 # AutoHotkey
-New-Item -ItemType SymbolicLink -Path "$HOME\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Main.ahk" -Target "$HOME\.local\share\AutoHotkey\Main.ahk" -Confirm -errorAction SilentlyContinue
+New-Item -ItemType SymbolicLink -Path "$HOME\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Main.ahk" -Target "$HOME\.config\AutoHotkey\Main.ahk" -Confirm -errorAction SilentlyContinue
