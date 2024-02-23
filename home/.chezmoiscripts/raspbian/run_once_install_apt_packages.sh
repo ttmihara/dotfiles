@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo apt install bash-completion
+sudo apt install bash-completion vim
