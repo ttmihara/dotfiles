@@ -6,7 +6,7 @@ if (Get-Command scoop -errorAction SilentlyContinue)
     'git',
     'curl',
     # '7zip',
-    'autohotkey',
+    # 'autohotkey',
     # 'windows-terminal',
     # 'everything',
 
